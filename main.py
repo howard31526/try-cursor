@@ -79,7 +79,7 @@ class WebContentAnalyzer:
 
         # 常見中文停用詞，可根據需求擴充
         zh_stop_words = set([
-            "的", "了", "和", "是", "在", "也", "有", "與", "將", "為", "不", "及", "或", "就", "都",
+            "的", "了", "和", "是", "在", "也", "有", "與", "將","及", "或", "就", "都",
             "而", "及", "著", "以", "對", "由", "及其", "等", "中", "之一", "並"
         ])
         filtered_zh_words = [w for w in zh_words if w.strip() and w not in zh_stop_words and re.match(r'[\u4e00-\u9fff]+', w)]
@@ -173,7 +173,7 @@ def main():
     print("  網頁內容分析器 - Web Content Analyzer")
     print("=" * 60)
     
-    # 測試用網址（可以改成任何網址）
+    # 測試用網址
     default_url = "https://www.python.org"
     
     # 檢查是否有命令行參數
@@ -181,7 +181,7 @@ def main():
         url = sys.argv[1]
     else:
         try:
-            url = input(f"\n請輸入要分析的網址 (直接按 Enter 使用預設: {default_url}): ").strip()
+            url = input(f"\n輸入要分析的網址 (直接按 Enter 使用預設: {default_url}): ").strip()
         except (KeyboardInterrupt, EOFError):
             print(f"\n使用預設網址: {default_url}")
             url = ""
