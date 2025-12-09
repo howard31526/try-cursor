@@ -168,6 +168,7 @@ class WebContentAnalyzer:
 def main():
     """主程式"""
     import sys
+    import os
     
     print("=" * 60)
     print("  網頁內容分析器 - Web Content Analyzer")
@@ -176,9 +177,16 @@ def main():
     # 測試用網址
     default_url = "https://www.python.org"
     
-    # 檢查是否有命令行參數
+    # 優先順序：命令行參數 > 環境變數 > 互動輸入 > 預設值
+    url = None
+    
+    # 1. 檢查命令行參數
     if len(sys.argv) > 1:
         url = sys.argv[1]
+    # 2. 檢查環境變數
+    elif os.getenv('TARGET_URL'):
+        url = os.getenv('TARGET_URL')
+    # 3. 互動輸入
     else:
         try:
             url = input(f"\n輸入要分析的網址 (直接按 Enter 使用預設: {default_url}): ").strip()
