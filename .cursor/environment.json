@@ -1,4 +1,6 @@
 {
-  "agentCanUpdateSnapshot": true,
-  "install": "bash -c 'curl -LsSf https://astral.sh/uv/install.sh | sh && export PATH=\"$HOME/.local/bin:$PATH\" && uv sync'"
+  "snapshot": "snapshot-20251209-d1f8ce7e-da54-42ae-943e-8c283deb33ac",
+  "install": "bash -c 'curl -LsSf https://astral.sh/uv/install.sh | sh && export PATH=\"$HOME/.local/bin:$PATH\" && uv sync'",
+  "start": "uv python run main.py",
+  "terminals": []
 }
